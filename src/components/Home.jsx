@@ -17,7 +17,7 @@ const Home = () => {
       }
 
       try {
-        const response = await axios.get('http://localhost:8080/api/v1/', {
+        const response = await axios.get('http://localhost/api/v1/', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
