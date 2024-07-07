@@ -31,7 +31,16 @@ export default function Filters() {
       {"Синонимы": null},
       {"Связь": null},
       {"Конкурент": null}
-    ]
+    ],
+    "product_price": [
+      {"": null}
+    ],
+    "parse_settings": [
+      {"": null}
+    ],
+    "parse_task": [
+      {"": null}
+    ],
   }
   const { table_name } = useParams()
   const this_filters = filters_list[table_name]
