@@ -3,7 +3,7 @@ import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
 import NavigationBar from './components/NavigationBar';
 import DataTable from './components/DataTable.jsx';
-import Filters from './components/Filters';
+import Filters from './components/Filters.jsx';
 
 export default function App() {
   return (

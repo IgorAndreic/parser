@@ -1,11 +1,12 @@
 import {useParams} from "react-router-dom";
-import {filtersStore, __filter_list__, __filter__} from "../stores/filtersStorage";
+import {filtersStore} from "../stores/filtersStorage";
 
+// eslint-disable-next-line react/prop-types
 function Filter({filter}) {
   const title = Object.keys(filter)[0]
   const values = filter[title]
 
-  let input = <></>
+  let input
   if (values != null) {
     input = (
       <input style={{borderWidth: "2px"}} type="checkbox">
@@ -25,7 +26,7 @@ function Filter({filter}) {
 }
 
 export default function Filters() {
-  const filters_list: __filter_list__ = {
+  const filters_list = {
     "product": [
       {"Синонимы": null},
       {"Связь": null},
@@ -35,16 +36,16 @@ export default function Filters() {
   const { table_name } = useParams()
   const this_filters = filters_list[table_name]
 
-  function saveFilters(e) {
+  function saveFilters() {
     let filters = {}
 
     // @ts-ignore
     for (const i of document.querySelectorAll(".filter")){
       const filter_title = i.id
-      const filter_value = JSON.stringify(document.querySelector(`.filter#${filter_title} input`).value)
+      filters[filter_title] = document.querySelector(`.filter#${filter_title} input`).value
 
-      filters[filter_title] = filter_value
       filtersStore.setFilters(filters, table_name)
+      location.reload()
     }
   }
 
