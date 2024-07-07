@@ -6,7 +6,6 @@ function DataObj({data}) {
   let data_out = ""
   if (typeof data == "object" && data != null) {
     if (Array.isArray(data)) {
-      console.log(data)
       for (let i in Object.values(data)) {
         if (typeof data[i] == "object" && data[i] != null) {
           const vals = Object.values(data[i])
@@ -33,7 +32,6 @@ function DataObj({data}) {
 }
 
 function DataLine({line}) {
-  console.log(line)
   return (
     <tr>
       {
