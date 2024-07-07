@@ -1,4 +1,5 @@
 import {useParams} from "react-router-dom";
+import {filtersStore, __filter_list__, __filter__} from "../stores/filtersStorage";
 
 function Filter({filter}) {
   const title = Object.keys(filter)[0]
@@ -23,14 +24,6 @@ function Filter({filter}) {
   )
 }
 
-interface __filter__ {
-  [key: string]: []|null
-}
-
-interface __filter_list__ {
-  [key: string]: __filter__[]
-}
-
 export default function Filters() {
   const filters_list: __filter_list__ = {
     "product": [
@@ -45,8 +38,13 @@ export default function Filters() {
   function saveFilters(e) {
     let filters = {}
 
-    for (const i of [document.querySelectorAll(".filter input")]){
+    // @ts-ignore
+    for (const i of document.querySelectorAll(".filter")){
+      const filter_title = i.id
+      const filter_value = JSON.stringify(document.querySelector(`.filter#${filter_title} input`).value)
 
+      filters[filter_title] = filter_value
+      filtersStore.setFilters(filters, table_name)
     }
   }
 
