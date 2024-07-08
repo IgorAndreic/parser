@@ -25,7 +25,7 @@ class AuthStore {
 
   async login(username, password) {
     try {
-      const response = await axiosInstance.post('http://95.78.254.210:10202/auth/token/', { username, password });
+      const response = await axiosInstance.post('http://95.78.254.210:10201/auth/token/', { username, password });
       const token = response.data.token;
       this.setToken(token);
       return response.data;
