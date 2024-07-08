@@ -33,13 +33,19 @@ export default function Filters() {
       {"Конкурент": null}
     ],
     "product_price": [
-      {"": null}
+      {"Товар": null},
+      {"Задача": null},
+      {"Настройка": null},
+      {"Статус": null},
     ],
     "parse_settings": [
       {"": null}
     ],
     "parse_task": [
-      {"": null}
+      {"Статус": null},
+      {"Название": null},
+      {"Дата (с)": null},
+      {"Дата (до)": null},
     ],
   }
   const { table_name } = useParams()
@@ -58,14 +64,18 @@ export default function Filters() {
     }
   }
 
-  return (
-    <div id="filters" className="p-2">
-      {
-        this_filters.map((f, id) => <Filter key={id} filter={f}/> )
-      }
-      <div className="set" onClick={saveFilters}>
-        <p>Применить</p>
+  if (this_filters) {
+    return (
+      <div id="filters" className="p-2">
+        {
+          this_filters.map((f, id) => <Filter key={id} filter={f}/> )
+        }
+        <div className="set" onClick={saveFilters}>
+          <p>Применить</p>
+        </div>
       </div>
-    </div>
-  )
+    )
+  } else {
+    return <></>
+  }
 }
