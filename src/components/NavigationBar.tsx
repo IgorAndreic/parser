@@ -16,8 +16,8 @@ export default function NavigationBar() {
   const links: __Link__[] = [
     {title: "Продукты", link: "/product"},
     {title: "Цены на продукты", link: "/product_price"},
-    {title: "Парсеры", link: "/parse_task"},
-    {title: "Задачи парсеров", link: "/parse_settings"},
+    {title: "Парсеры", link: "/parse_settings"},
+    {title: "Задачи парсеров", link: "/parse_task"},
   ]
 
   return (
